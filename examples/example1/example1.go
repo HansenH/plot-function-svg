@@ -11,6 +11,6 @@ func main() {
 		r := math.Hypot(x, y)
 		return math.Sin(r) / r
 	}
-	file, _ := os.Create("example.svg")
+	file, _ := os.Create("example1.svg")
 	plot.PlotSVG(f, file, nil)
 }

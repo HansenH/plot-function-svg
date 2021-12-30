@@ -16,9 +16,12 @@ type PlotConfig struct {
 	Height      int
 	Cells       int
 	XYrange     float64
+	Xoffset     float64
+	Yoffset     float64
 	Zscale      float64
 	CameraAngle float64
 	Color       bool
+	RightHand   bool
 }
 
 func DefaultPlotConfig() *PlotConfig {
@@ -27,9 +30,12 @@ func DefaultPlotConfig() *PlotConfig {
 		Height:      320,
 		Cells:       100,
 		XYrange:     30.0,
+		Xoffset:     0,
+		Yoffset:     0,
 		Zscale:      0.4,
 		CameraAngle: math.Pi / 6,
 		Color:       true,
+		RightHand:   true,
 	}
 }
 
@@ -80,6 +86,11 @@ func (cfg *PlotConfig) projectToCanvas(x, y, z float64) (float64, float64) {
 	sinAngle, cosAngle := math.Sin(cfg.CameraAngle), math.Cos(cfg.CameraAngle)
 	xyscale := float64(cfg.Width) / 2 / cfg.XYrange
 	zCoeff := cfg.Zscale * float64(cfg.Height)
+	x = x + cfg.Xoffset
+	y = y + cfg.Yoffset
+	if cfg.RightHand {
+		x, y = y, x
+	}
 	sx := float64(cfg.Width)/2 + (x-y)*cosAngle*xyscale
 	sy := float64(cfg.Height)/2 + (x+y)*sinAngle*xyscale - z*zCoeff
 	return sx, sy

@@ -5,7 +5,7 @@ Some codes are referred from https://github.com/adonovan/gopl.io
 licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.<br/>
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
 
-![image](https://github.com/HansenH/plot-function-svg/blob/main/examples/example1.png)  
+![image](https://github.com/HansenH/plot-function-svg/blob/main/examples/example1/example1.png)![image](https://github.com/HansenH/plot-function-svg/blob/main/examples/example2/example2.png)
 
 ## APIs
 ```go
@@ -14,9 +14,12 @@ type PlotConfig struct {
 	Height      int
 	Cells       int
 	XYrange     float64
+    Xoffset     float64
+	Yoffset     float64
 	Zscale      float64
 	CameraAngle float64
 	Color       bool
+    RightHand   bool
 }
 
 func DefaultPlotConfig() *PlotConfig {
@@ -25,9 +28,12 @@ func DefaultPlotConfig() *PlotConfig {
 		Height:      320,
 		Cells:       100,
 		XYrange:     30.0,
+		Xoffset:     0,
+		Yoffset:     0,
 		Zscale:      0.4,
 		CameraAngle: math.Pi / 6,
 		Color:       true,
+        RightHand:   true,
 	}
 }
 
@@ -35,4 +41,13 @@ func DefaultPlotConfig() *PlotConfig {
 func PlotSVG(f func(x, y float64) float64, w io.Writer, cfg *PlotConfig) 
 
 ```
-	
+  
+Right-hand coordinates (default):  
+&nbsp;&nbsp;&nbsp;&nbsp;z  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|__ y  
+x /  
+<br>
+Left-hand coordinates:  
+&nbsp;&nbsp;&nbsp;&nbsp;z  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|__ x  
+y /  
