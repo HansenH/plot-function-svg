@@ -2,7 +2,7 @@
 // Copyright © 2021 HansenH https://github.com/HansenH
 // License: https://creativecommons.org/licenses/by-nc-sa/4.0/
 
-package main
+package plot
 
 import (
 	"fmt"
@@ -107,12 +107,4 @@ func minmax(f func(x, y float64) float64, cfg *PlotConfig) (min, max float64) {
 		}
 	}
 	return
-}
-
-func main() {
-	f := func(x, y float64) float64 {
-		r := math.Hypot(x, y)
-		return math.Sin(r) / r
-	}
-	PlotSVG(f, nil, nil)
 }
