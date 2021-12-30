@@ -60,7 +60,7 @@ f := func(x, y float64) float64 {
 file, _ := os.Create("example1.svg")
 plot.PlotSVG(f, file, nil)
 ```
-![image](https://github.com/HansenH/plot-function-svg/blob/main/examples/example1/example1.png)!  
+![image](https://github.com/HansenH/plot-function-svg/blob/main/examples/example1/example1.png)  
 
 Example2:  
 ```go
@@ -82,4 +82,4 @@ f := func(x, y float64) float64 {
 file, _ := os.Create("example2.svg")
 plot.PlotSVG(f, file, cfg)
 ```
-[image](https://github.com/HansenH/plot-function-svg/blob/main/examples/example2/example2.png)  
+![image](https://github.com/HansenH/plot-function-svg/blob/main/examples/example2/example2.png)  
