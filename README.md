@@ -12,12 +12,12 @@ type PlotConfig struct {
 	Height      int
 	Cells       int
 	XYrange     float64
-    Xoffset     float64
+	Xoffset     float64
 	Yoffset     float64
 	Zscale      float64
 	CameraAngle float64
 	Color       bool
-    RightHand   bool
+	RightHand   bool
 }
 
 func DefaultPlotConfig() *PlotConfig {
@@ -31,7 +31,7 @@ func DefaultPlotConfig() *PlotConfig {
 		Zscale:      0.4,
 		CameraAngle: math.Pi / 6,
 		Color:       true,
-        RightHand:   true,
+		RightHand:   true,
 	}
 }
 
